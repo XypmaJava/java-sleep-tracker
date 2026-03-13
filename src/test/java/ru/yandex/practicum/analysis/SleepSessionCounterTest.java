@@ -16,7 +16,8 @@ class SleepSessionCounterTest {
 
         List<SleepingSession> sessions = List.of
                 (new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(7), SleepQuality.GOOD),
-                        new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(6), SleepQuality.NORMAL));
+                        new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(6), SleepQuality.NORMAL)
+                );
 
         SleepSessionCounter counter = new SleepSessionCounter();
         SleepAnalysisResult result = counter.apply(sessions);
