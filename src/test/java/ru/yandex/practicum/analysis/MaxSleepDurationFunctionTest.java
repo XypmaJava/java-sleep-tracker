@@ -13,15 +13,10 @@ class MaxSleepDurationFunctionTest {
     @Test
     void shouldFindMaxDuration() {
 
-        List<SleepingSession> sessions = List.of(
-                new SleepingSession(LocalDateTime.now(),
-                        LocalDateTime.now().plusMinutes(80),
-                        SleepQuality.GOOD),
+        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
+                        LocalDateTime.now().plusMinutes(80), SleepQuality.GOOD),
 
-                new SleepingSession(LocalDateTime.now(),
-                        LocalDateTime.now().plusMinutes(200),
-                        SleepQuality.NORMAL)
-        );
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(200), SleepQuality.NORMAL));
 
         MaxSleepDurationFunction f = new MaxSleepDurationFunction();
         SleepAnalysisResult result = f.apply(sessions);
@@ -32,11 +27,8 @@ class MaxSleepDurationFunctionTest {
     @Test
     void shouldReturnDurationWhenSingleSession() {
 
-        List<SleepingSession> sessions = List.of(
-                new SleepingSession(LocalDateTime.now(),
-                        LocalDateTime.now().plusMinutes(90),
-                        SleepQuality.GOOD)
-        );
+        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
+                LocalDateTime.now().plusMinutes(90), SleepQuality.GOOD));
 
         MaxSleepDurationFunction f = new MaxSleepDurationFunction();
         SleepAnalysisResult result = f.apply(sessions);

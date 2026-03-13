@@ -13,8 +13,8 @@ class MinSleepDurationFunctionTest {
     @Test
     void shouldFindMinDuration() {
 
-        List<SleepingSession> sessions = List.of
-                (new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(100), SleepQuality.GOOD),
+        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
+                LocalDateTime.now().plusMinutes(100), SleepQuality.GOOD),
                 new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(50), SleepQuality.NORMAL));
 
         MinSleepDurationFunction f = new MinSleepDurationFunction();
@@ -26,8 +26,8 @@ class MinSleepDurationFunctionTest {
     @Test
     void shouldReturnDurationWhenSingleSession() {
 
-        List<SleepingSession> sessions = List.of
-                (new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(120), SleepQuality.GOOD));
+        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
+                LocalDateTime.now().plusMinutes(120), SleepQuality.GOOD));
 
         MinSleepDurationFunction f = new MinSleepDurationFunction();
         SleepAnalysisResult result = f.apply(sessions);

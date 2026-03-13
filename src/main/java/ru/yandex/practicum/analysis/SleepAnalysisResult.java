@@ -1,4 +1,3 @@
-
 package ru.yandex.practicum.analysis;
 
 public class SleepAnalysisResult {

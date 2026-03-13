@@ -10,14 +10,14 @@ import java.util.function.Function;
 
 public class SleepTrackerApp {
 
-    private static final List<Function<List<SleepingSession>, SleepAnalysisResult>> FUNCTIONS = List.of(
-            new SleepSessionCounter(),
-            new MinSleepDurationFunction(),
-            new MaxSleepDurationFunction(),
-            new AvgSleepDurationFunction(),
-            new BadQualitySleepCounter(),
-            new SleeplessNightsFunction()
-    );
+    private static final List<Function<List<SleepingSession>, SleepAnalysisResult>> FUNCTIONS =
+            List.of(new SleepSessionCounter(),
+                    new MinSleepDurationFunction(),
+                    new MaxSleepDurationFunction(),
+                    new AvgSleepDurationFunction(),
+                    new BadQualitySleepCounter(),
+                    new SleeplessNightsFunction()
+            );
 
     public static void main(String[] args) throws Exception {
 
@@ -28,9 +28,9 @@ public class SleepTrackerApp {
 
         List<SleepingSession> sessions = SleepFileReader.read(args[0]);
 
-        FUNCTIONS.stream()
-                .map(f -> f.apply(sessions))
-                .forEach(r -> System.out.println(r.getDescription() + ": " + r.getValue()));
+        FUNCTIONS.stream().map(f ->
+                f.apply(sessions)).forEach(r ->
+                System.out.println(r.getDescription() + ": " + r.getValue()));
 
         UserChronotypeFunction chronotypeFunction = new UserChronotypeFunction();
         Chronotype userType = chronotypeFunction.apply(sessions);

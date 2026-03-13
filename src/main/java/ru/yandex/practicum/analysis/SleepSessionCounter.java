@@ -1,7 +1,7 @@
-
 package ru.yandex.practicum.analysis;
 
 import ru.yandex.practicum.model.SleepingSession;
+
 import java.util.List;
 import java.util.function.Function;
 

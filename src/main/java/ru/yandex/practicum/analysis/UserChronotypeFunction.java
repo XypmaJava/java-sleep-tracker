@@ -16,15 +16,12 @@ public class UserChronotypeFunction implements Function<List<SleepingSession>, C
         if (sessions.isEmpty()) return Chronotype.PIGEON;
 
         // Отбираем только ночные сессии
-        List<SleepingSession> nightSessions = sessions.stream()
-                .filter(this::isNightSleep)
-                .collect(Collectors.toList());
+        List<SleepingSession> nightSessions = sessions.stream().filter(this::isNightSleep).collect(Collectors.toList());
 
         if (nightSessions.isEmpty()) return Chronotype.PIGEON;
 
         // Классификация ночей
-        Map<Chronotype, Long> typeCounts = nightSessions.stream()
-                .map(this::classifyNight)
+        Map<Chronotype, Long> typeCounts = nightSessions.stream().map(this::classifyNight)
                 .collect(Collectors.groupingBy(type -> type, Collectors.counting()));
 
         long owlCount = typeCounts.getOrDefault(Chronotype.OWL, 0L);

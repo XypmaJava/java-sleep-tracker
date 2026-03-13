@@ -1,4 +1,3 @@
-
 package ru.yandex.practicum.model;
 
 import java.time.Duration;

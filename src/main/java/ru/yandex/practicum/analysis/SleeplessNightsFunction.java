@@ -27,7 +27,8 @@ public class SleeplessNightsFunction implements Function<List<SleepingSession>, 
             LocalDateTime nightStart = date.minusDays(1).atTime(22, 0);
             LocalDateTime nightEnd = date.atTime(6, 0);
 
-            boolean sleptDuringNight = sessions.stream().anyMatch(s -> s.getStart().isBefore(nightEnd) && s.getEnd().isAfter(nightStart));
+            boolean sleptDuringNight = sessions.stream().anyMatch(s -> s.getStart().isBefore(nightEnd)
+                    && s.getEnd().isAfter(nightStart));
 
             if (!sleptDuringNight) {
                 sleeplessCount++;
