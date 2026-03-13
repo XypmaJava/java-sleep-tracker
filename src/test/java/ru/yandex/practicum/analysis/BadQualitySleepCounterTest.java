@@ -13,10 +13,11 @@ class BadQualitySleepCounterTest {
     @Test
     void shouldCountBadQualitySessions() {
 
-        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
-                        LocalDateTime.now().plusHours(7), SleepQuality.BAD),
+        List<SleepingSession> sessions = List.of(
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(7), SleepQuality.BAD),
 
-                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(6), SleepQuality.GOOD));
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(6), SleepQuality.GOOD)
+        );
 
         BadQualitySleepCounter counter = new BadQualitySleepCounter();
 
@@ -28,8 +29,9 @@ class BadQualitySleepCounterTest {
     @Test
     void shouldReturnZeroWhenNoBadSessions() {
 
-        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
-                LocalDateTime.now().plusHours(7), SleepQuality.GOOD));
+        List<SleepingSession> sessions = List.of(
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusHours(7), SleepQuality.GOOD)
+        );
 
         BadQualitySleepCounter counter = new BadQualitySleepCounter();
 

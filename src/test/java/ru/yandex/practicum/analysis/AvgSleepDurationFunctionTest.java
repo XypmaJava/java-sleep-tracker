@@ -13,10 +13,11 @@ class AvgSleepDurationFunctionTest {
     @Test
     void shouldCalculateAverageDuration() {
 
-        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
-                        LocalDateTime.now().plusMinutes(60), SleepQuality.GOOD),
+        List<SleepingSession> sessions = List.of(
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(60), SleepQuality.GOOD),
 
-                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(120), SleepQuality.NORMAL));
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(120), SleepQuality.NORMAL)
+        );
 
         AvgSleepDurationFunction f = new AvgSleepDurationFunction();
         SleepAnalysisResult result = f.apply(sessions);
@@ -27,8 +28,9 @@ class AvgSleepDurationFunctionTest {
     @Test
     void shouldReturnSameValueForSingleSession() {
 
-        List<SleepingSession> sessions = List.of(new SleepingSession(LocalDateTime.now(),
-                LocalDateTime.now().plusMinutes(75), SleepQuality.GOOD));
+        List<SleepingSession> sessions = List.of(
+                new SleepingSession(LocalDateTime.now(), LocalDateTime.now().plusMinutes(75), SleepQuality.GOOD)
+        );
 
         AvgSleepDurationFunction f = new AvgSleepDurationFunction();
         SleepAnalysisResult result = f.apply(sessions);
